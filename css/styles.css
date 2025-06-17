@@ -1,9 +1,9 @@
 :root {
-  --azul: #1d70b8ff;
-  --night: #0b0c0cff;
-  --white-smoke: #f3f2f1ff;
-  --white: #ffffffff;
-  --dark-spring-green: #00703cff;
+  --white: #ffffffff; /* main background colour */
+  --night: #0b0c0cff; /* header background colour */
+  --white-smoke: #f3f2f1ff; /* footer background colour */
+  --azul: #1d70b8ff; /* accent colour */
+  --dark-spring-green: #00703cff; /* colour for buttons or other interactions */
 }
 
 * {
@@ -30,10 +30,10 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: var(--night); 
-  padding: 20px 40px;
+  padding: 10px 20vw;
   border-bottom: 5px solid var(--azul);
   color: var(--white);
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 .header-left {
@@ -46,7 +46,7 @@ body {
 }
 
 .header-left .landing-site-title a {
-  font-size: 2.188rem;
+  font-size: 2rem;
   color: var(--white);
   text-decoration: none;
   visibility: visible;
@@ -95,4 +95,54 @@ img.logo {
 
 img.logo:hover {
   transform: scale(1.1);
+}
+
+/* MAIN */
+main {
+  padding: 10px 20vw;
+  min-height: 90vh;
+  margin-top: 20px;
+}
+
+main h1 {
+  font-size: 3rem;
+  color: var(--night);
+  font-weight: 700;
+  margin-bottom: 1.1875rem;
+}
+
+main h2 {
+  font-size: 2.25rem;
+  color: var(--night);
+  font-weight: 700;
+  margin-bottom: 1.1875rem;
+}
+
+main h3 {
+  font-size: 1.6875rem;
+  color: var(--night);
+  margin-bottom: 1.1875rem;
+  font-weight: 700;
+}
+
+main h4 {
+  font-size: 1.1875rem;
+  color: var(--night);
+  margin-bottom: 1.1875rem;
+  font-weight: 700;
+}
+
+main p {
+  font-size: 1.1875rem;
+  color: var(--night);
+  font-weight: 400;
+}
+
+/* FOOTER */
+footer {
+  padding: 10px 20vw;
+  background-color: var(--white-smoke);
+  color: var(--night);
+  min-height: 10vh;
+  border-top: 5px solid var(--azul);
 }
