@@ -1,0 +1,98 @@
+:root {
+  --azul: #1d70b8ff;
+  --night: #0b0c0cff;
+  --white-smoke: #f3f2f1ff;
+  --white: #ffffffff;
+  --dark-spring-green: #00703cff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  letter-spacing: 0.1px;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  /* overflow: hidden; */
+}
+
+body {
+  font-family: 'GDS Transport', Helvetica, Arial, sans-serif;
+  background-color: var(--white);
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--night); 
+  padding: 20px 40px;
+  border-bottom: 5px solid var(--azul);
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-left .landing-site-title {
+  visibility: visible;
+}
+
+.header-left .landing-site-title a {
+  font-size: 2.188rem;
+  color: var(--white);
+  text-decoration: none;
+  visibility: visible;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.header-left .landing-site-title a:hover {
+  color: var(--azul);
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-menu ul li a {
+  text-decoration: none;
+  color:var(--white);
+  font-size: 1.25rem;
+  transition: color 0.3s ease;
+  font-weight: lighter;
+}
+
+.nav-menu ul li a:hover {
+  color: var(--white); 
+}
+
+.nav-menu ul li a.active {
+  font-weight: bold;
+}
+
+a.logo2website {
+  display: flex;
+  margin-right: 15px;
+}
+
+img.logo {
+  max-height: 2.5rem;
+  transition: transform 0.2s ease;
+  background-color: var(--white);
+  border-radius: 4px;
+}
+
+img.logo:hover {
+  transform: scale(1.1);
+}
