@@ -27,10 +27,10 @@ body {
 /* Header */
 .site-header {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   background-color: var(--night); 
-  padding: 10px 20vw;
+  padding: 10px 25vw;
   border-bottom: 5px solid var(--azul);
   color: var(--white);
   /* margin-bottom: 10px; */
@@ -99,7 +99,7 @@ img.logo:hover {
 
 /* MAIN */
 main {
-  padding: 10px 20vw;
+  padding: 10px 25vw;
   min-height: 90vh;
   margin-top: 20px;
 }
@@ -160,9 +160,79 @@ main img {
 
 /* FOOTER */
 footer {
-  padding: 10px 20vw;
+  padding: 10px 25vw;
   background-color: var(--white-smoke);
   color: var(--night);
   min-height: 10vh;
   border-top: 5px solid var(--azul);
+}
+
+/* Utils */
+.web-button {
+  text-decoration: none;
+  color: var(--white);
+  margin-bottom: 40px;
+  font-size: 1.1875rem;
+  line-height: 1;
+  font-weight: 700;
+  display: inline-flex;
+  min-height: auto;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 8px 10px 7px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 0;
+  background-color: var(--dark-spring-green);
+  box-shadow: 0 2px 0 rgb(0, 44.8, 24);
+  text-align: center;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.web-button:active {
+  top: 2px;
+}
+
+.web-button:hover {
+    background-color: rgb(0,89.6,48);
+}
+
+.web-button:focus:not(:active):not(:hover) {
+    border-color: #fd0;
+    color: #0b0c0c;
+    background-color: #fd0;
+    box-shadow: 0 2px 0 #0b0c0c;
+}
+
+/* USE CASES PAGE */
+.usecase1 {
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  margin-bottom: 1rem;
+}
+
+.usecase1-text {
+  text-align: left;
+}
+
+.usecase1-img img {
+  border: none;
+  margin: 0;
+}
+
+.usecase2 {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: top;
+  margin-bottom: 1rem;
+}
+
+.usecase2-text {
+  text-align: right;
+}
+
+.usecase2-img img {
+  border: none;
+  margin: 0;
 }
