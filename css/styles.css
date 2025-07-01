@@ -210,6 +210,7 @@ footer {
   flex-direction: row;
   align-items: top;
   margin-bottom: 1rem;
+  justify-content: space-between;
 }
 
 .usecase1-text {
@@ -219,6 +220,9 @@ footer {
 .usecase1-img img {
   border: none;
   margin: 0;
+  width: 20vw;
+  height: auto;
+  min-width: 200px;
 }
 
 .usecase2 {
@@ -226,6 +230,7 @@ footer {
   flex-direction: row-reverse;
   align-items: top;
   margin-bottom: 1rem;
+  justify-content: space-between;
 }
 
 .usecase2-text {
@@ -235,4 +240,7 @@ footer {
 .usecase2-img img {
   border: none;
   margin: 0;
+  width: 20vw;
+  height: auto;
+  min-width: 200px;
 }
