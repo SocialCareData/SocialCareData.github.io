@@ -17,7 +17,7 @@ async function loadMarkdown_full(filePath, elementId) {
 document.addEventListener("DOMContentLoaded", () => {
   const scrollableTexts = document.querySelectorAll('.markdown-content');
   scrollableTexts.forEach((scrollableText) => {
-    const markdownFile = `content/${scrollableText.getAttribute('data-markdown')}`;
+    const markdownFile = `../../content/${scrollableText.getAttribute('data-markdown')}`;
     loadMarkdown_full(markdownFile, scrollableText.id);
   });
 
