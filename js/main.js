@@ -15,10 +15,16 @@ async function loadMarkdown_full(filePath, elementId) {
 
 // Load markdown content on compile
 document.addEventListener("DOMContentLoaded", () => {
-  const scrollableTexts = document.querySelectorAll('.markdown-content');
-  scrollableTexts.forEach((scrollableText) => {
-    const markdownFile = `../../content/${scrollableText.getAttribute('data-markdown')}`;
-    loadMarkdown_full(markdownFile, scrollableText.id);
+  const mdTexts = document.querySelectorAll('.markdown-content');
+  mdTexts.forEach((mdText) => {
+    const markdownFile = `../../content/${mdText.getAttribute('data-markdown')}`;
+    loadMarkdown_full(markdownFile, mdText.id);
+  });
+
+  const mdTextsExternal = document.querySelectorAll('.markdown-content-external');
+  mdTextsExternal.forEach((mdText) => {
+    const markdownFile = `${mdText.getAttribute('data-markdown')}`;
+    loadMarkdown_full(markdownFile, mdText.id);
   });
 
   

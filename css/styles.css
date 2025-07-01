@@ -20,7 +20,7 @@ html, body {
 }
 
 body {
-  font-family: 'GDS Transport', Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: var(--white);
 }
 
@@ -70,11 +70,11 @@ body {
   color:var(--white);
   font-size: 1.25rem;
   transition: color 0.3s ease;
-  font-weight: lighter;
+  font-weight: medium;
 }
 
 .nav-menu ul li a:hover {
-  color: var(--white); 
+  color: var(--azul); 
 }
 
 .nav-menu ul li a.active {
@@ -167,6 +167,11 @@ footer {
   border-top: 5px solid var(--azul);
 }
 
+/* Markdown Content */
+.markdown-content, .markdown-content-external {
+  margin-bottom: 15px;
+}
+
 /* Utils */
 .web-button {
   text-decoration: none;
@@ -243,4 +248,31 @@ footer {
   width: 20vw;
   height: auto;
   min-width: 200px;
+}
+
+/* Tables */
+table {
+  border: 0px solid
+}
+
+th, td {
+  text-align: left;
+  padding: 5px;
+}
+
+
+th {
+  border-bottom: 2px solid;
+}
+
+td {
+  font-size: 0.75em;
+}
+
+td code {
+  font-size: 1.25em;
+}
+
+tr:nth-child(even) {
+  background-color: var(--white-smoke);
 }
