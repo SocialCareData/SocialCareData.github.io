@@ -1,5 +1,5 @@
 // Imports
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'
+import mermaid from 'https:///cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'
 
 // Function to fetch and render a full Markdown file
 async function loadMarkdown_full(filePath, elementId) {

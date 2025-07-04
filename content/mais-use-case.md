@@ -2,7 +2,7 @@
 
 Whilst we have broader ambitions for the programme as a whole, we are focussing in the first instance on a narrowly scoped set of standards designed to unblock the use of ‘Single View’ systems, as an aid to multi-agency information sharing.  
 
-‘SingleView’ systems are those which allow a professional to see on one screen, information from multiple agencies. An example is ['Family Context'](https:/www.stockport.gov.uk/news/stockport-council-to-showcase-award-winning-family-context-tool) in Stockport. 
+‘SingleView’ systems are those which allow a professional to see on one screen, information from multiple agencies. An example is ['Family Context'](https://www.stockport.gov.uk/news/stockport-council-to-showcase-award-winning-family-context-tool) in Stockport. 
 
 The standards we will create include: 
 - A **Data Exchange Standard** which will standardise and support *how* data is exchanged between systems

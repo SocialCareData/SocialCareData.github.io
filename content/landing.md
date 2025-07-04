@@ -9,7 +9,7 @@ The creation of these standards aims to make it easier for data created in one s
 - **Improved analysis** – by making it easier to analyse the interaction of different services. E.g. for understanding the impact of timely CAMHS provision (or its absence) on children’s journeys into care.
 - **Reduced administration** – with productivity-enhancing tools for social workers more easily able to integrate with Case Management Systems (CMS), and routine exchange and recording of notifications now easier to automate. 
 
-We also plan to use the development of national standards as an opportunity to normalise approaches to data sharing which implement privacy by design and by default [(as per ICO guidance)](https:/ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/accountability-and-governance/guide-to-accountability-and-governance/data-protection-by-design-and-default/).
+We also plan to use the development of national standards as an opportunity to normalise approaches to data sharing which implement privacy by design and by default [(as per ICO guidance)](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/accountability-and-governance/guide-to-accountability-and-governance/data-protection-by-design-and-default/).
 
 This work is being delivered in close coordination with the Department for Health and Social Care (DHSC) given the important overlaps with adult social care, and under the direction of a steering group which brings together a range of stakeholders from across the sector.
 
