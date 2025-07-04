@@ -25,11 +25,23 @@ body {
 }
 
 /* Header */
+header {
+  background-color: var(--night);
+  border-bottom: 5px solid var(--azul);
+  color: var(--white);
+}
+
+.header-top {
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .site-header {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  background-color: var(--night); 
+  background-color: var(--night);
   padding: 10px 25vw;
   border-bottom: 5px solid var(--azul);
   color: var(--white);
@@ -74,7 +86,7 @@ body {
 }
 
 .nav-menu ul li a:hover {
-  color: var(--azul); 
+  color: var(--azul);
 }
 
 .nav-menu ul li a.active {
