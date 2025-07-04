@@ -22,7 +22,7 @@ We will build on what already exists. That means:
 - Complementing in-depth strengths-based assessments such as the CANS, and bottom-up costing tools such as CareCubed. 
 
 ## The broken status quo
-The market for children’s social care placements, referring to the accommodation and support provided to children when they are taken into the care of the local authority, has been described by the [Local Government Association](https://www.local.gov.uk/about/news/childrens-social-care-placements-costing-ps10000-plus-rise-sharply-five-years-new-lga) as “broken”. Children are too often having to live far from home and in an institutional rather than family-like setting. There is also a very significant impact on Local Authorities’ budgets. 
+The market for children’s social care placements, referring to the accommodation and support provided to children when they are taken into the care of the local authority, has been described by the [Local Government Association](https:/www.local.gov.uk/about/news/childrens-social-care-placements-costing-ps10000-plus-rise-sharply-five-years-new-lga) as “broken”. Children are too often having to live far from home and in an institutional rather than family-like setting. There is also a very significant impact on Local Authorities’ budgets. 
 
 Managing this market – essentially ensuring that the right provision is available in the right place and at the right notice – requires market intelligence. LAs must have a clear picture of supply and demand in order to be able to tell providers what new provision they would be likely to pay for, or to make decisions about where to invest their own funds. 
 

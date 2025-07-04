@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Markdown
   const mdTexts = document.querySelectorAll('.markdown-content');
   mdTexts.forEach((mdText) => {
-    const markdownFile = `../../content/${mdText.getAttribute('data-markdown')}`;
+    const markdownFile = `/content/${mdText.getAttribute('data-markdown')}`;
     loadMarkdown_full(markdownFile, mdText.id);
   });
 
