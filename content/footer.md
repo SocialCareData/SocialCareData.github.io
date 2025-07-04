@@ -1,5 +1,14 @@
-# Getting involved
-For more information about the programme overall, or to join a working group, please contact the programme team.
+<div class="top">
+    <h1>Getting involved</h1>
+    <div class="tags">
+        <a id="github-link" href="https://github.com/SocialCareData">
+            <img id="github-image" src="../images/logos/GitHub_Lockup_Dark.png"/>
+        </a>
+    </div>
+</div>
+
+For more information about the programme overall, or to join a working group, please contact the programme team, or get involved with our public github repositories.
+
 
 |**Programme Director**|
 |:-|
@@ -10,3 +19,5 @@ For more information about the programme overall, or to join a working group, pl
 |:-|:-|
 |Harry Angus|Madeline Goldie|
 |[harry.angus@socialfinance.org.uk](mailto:harry.angus@socialfinance.org.uk)|[madeline.goldie@socialfinance.org.uk](mailto:madeline.goldie@socialfinance.org.uk)|
+
+*Note: This website is in its alpha development stage. All content is subject to licence.*

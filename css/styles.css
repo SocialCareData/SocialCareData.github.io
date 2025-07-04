@@ -281,6 +281,25 @@ main tr:nth-child(even) {
 }
 
 /* Footer */
+footer .top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer .tags {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+footer #github-image {
+  width: auto;
+  height: 30px;
+}
+
 footer h1 {
     font-size: 1.5rem;
     line-height: 1.25;
@@ -293,7 +312,7 @@ footer h1 {
     border-bottom: 1px solid #8eb8dc;
 }
 
-footer p {
+footer p, footer a  {
   font-size: 1.1875rem;
   color: var(--night);
   font-weight: 400;
