@@ -149,7 +149,7 @@ main li {
   padding: 0;
 }
 
-main ul {
+main ul, main ol {
   margin: 0 0 20px 20px;
   list-style-type: disc;
 }
@@ -220,6 +220,7 @@ footer {
 
 .usecase1-text {
   text-align: left;
+  margin-right: 50px;
 }
 
 .usecase1-img img {
@@ -228,6 +229,7 @@ footer {
   width: 20vw;
   height: auto;
   min-width: 200px;
+  visibility: hidden;
 }
 
 .usecase2 {
@@ -240,6 +242,7 @@ footer {
 
 .usecase2-text {
   text-align: right;
+  margin-left: 50px;
 }
 
 .usecase2-img img {
@@ -248,31 +251,87 @@ footer {
   width: 20vw;
   height: auto;
   min-width: 200px;
+  visibility: hidden;
 }
 
-/* Tables */
-table {
+/* Tables in main */
+main table {
   border: 0px solid
 }
 
-th, td {
+main th, main td {
   text-align: left;
   padding: 5px;
 }
 
-
-th {
+main th {
   border-bottom: 2px solid;
 }
 
-td {
+main td {
   font-size: 0.75em;
 }
 
-td code {
+main td code {
   font-size: 1.25em;
 }
 
-tr:nth-child(even) {
+main tr:nth-child(even) {
   background-color: var(--white-smoke);
+}
+
+/* Footer */
+footer .top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer .tags {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+footer #github-image {
+  width: auto;
+  height: 30px;
+}
+
+footer h1 {
+    font-size: 1.5rem;
+    line-height: 1.25;
+    color: var(--night);
+    font-weight: 700;
+    display: block;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #8eb8dc;
+}
+
+footer p, footer a  {
+  font-size: 1.1875rem;
+  color: var(--night);
+  font-weight: 400;
+  line-height: 1.3157894737;
+  margin: 0 0 20px 0;
+}
+
+footer table {
+  border: 0px solid;
+  margin-bottom: 30px;
+  font-size: 1.1875rem;
+  line-height: 1.3157894737;
+}
+
+footer th {
+  font-weight: 400;
+  padding-right: 5px;
+}
+
+footer td {
+  padding-right: 5px;
 }
