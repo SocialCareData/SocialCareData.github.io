@@ -1,1 +1,12 @@
-footer text from md
+# Getting involved
+For more information about the programme overall, or to join a working group, please contact the programme team.
+
+|**Programme Director**|
+|:-|
+|Tom Rintoul|
+|[tom.rintoul@socialfinance.org.uk](mailto:tom.rintoul@socialfinance.org.uk)|
+
+|**Lead - Standards to Enable Multi-Agency Information Sharing**| **Lead - Standards to Enable Regional Placement Sufficiency Analysis** |
+|:-|:-|
+|Harry Angus|Madeline Goldie|
+|[harry.angus@socialfinance.org.uk](mailto:harry.angus@socialfinance.org.uk)|[madeline.goldie@socialfinance.org.uk](mailto:madeline.goldie@socialfinance.org.uk)|
