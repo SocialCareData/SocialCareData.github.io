@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="/images/logos/main_logo.png" sizes="32x32">
-  <title>Specification - Data Standards for Social Care</title>
-  <meta name="description" content="Metadata spec for the Data Standards for Social Care programme">
-  <link rel="stylesheet" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/images/logos/main_logo.png" sizes="32x32">
+    <title>Specification - Data Standards for Social Care</title>
+    <meta name="description" content="Metadata spec for the Data Standards for Social Care programme">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
-  <!-- Header Start -->
+    <!-- Header Start -->
     <header>
         <div class="header-top">
-            <h4>ALPHA - This website is currently under development. Please provide feedback on <a href="https://github.com/SocialCareData/SocialCareData.github.io/issues/new?title=Alpha+Website+Feedback" target="_blank">Github</a></h3>
+            <h4>ALPHA - This website is currently under development. Please provide feedback on <a
+                    href="https://github.com/SocialCareData/SocialCareData.github.io/issues/new?title=Alpha+Website+Feedback"
+                    target="_blank">Github</a></h3>
         </div>
         <div class="site-header">
             <div class="header-left">
@@ -24,24 +28,42 @@
                 <nav class="nav-menu">
                     <ul>
                         <li><a href="/use-cases">Use Cases</a></li>
-                        <li><a href="/spec">Specification</a></li>
+                        <li><a href="/spec">Specifications</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
     <!-- Header End -->
-   <main>
+    <main>
 
-        <a href="/spec/person" class="web-button"> Person spec</a>
-   </main>
-   <footer>
+        <p>This catalogue provides access to the data specifications being developed for social care case management systems.</p>
+        <p>The specifications are generated dynamically from the latest versions in GitHub.</p>
+        <p>As new specifications are developed they will be added to this catalogue.</p>
+        <table class="catalogue">
+            <tr>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Link</th>
+                <th>Issues</th>
+            </tr>
+            <tr>
+                <td>Person Data Standard (Identification)</th>
+                <td>Draft</th>
+                <td><a href="/spec/person" class="web-button">Person Specifications</a></td>
+                <td><a href="https://github.com/SocialCareData/person-standard/issues" class="web-button"> Issues</a>
+                </td>
+            </tr>
+        </table>
+    </main>
+    <footer>
         <div id="footer-text" class="markdown-content" data-markdown="footer.md">
-                    <!-- footer Markdown content loaded here -->
-                </div>
-   </footer>
+            <!-- footer Markdown content loaded here -->
+        </div>
+    </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script type="module" src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="module" src="/js/main.js"></script>
 </body>
+
 </html>
