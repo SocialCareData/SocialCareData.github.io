@@ -298,6 +298,14 @@ main tr:nth-child(even) {
   background-color: var(--white-smoke);
 }
 
+main table.catalogue td {
+    font-size: 1.25em;
+}
+
+main table.catalogue td a.web-button{
+    margin: 10px;
+}
+
 /* Footer */
 footer .top {
   display: flex;
