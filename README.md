@@ -1,5 +1,4 @@
 # SocialCareData.github.io
-Lightweight website hosted on Github Pages (accessible at socialcaredata.github.io)
+Lightweight website hosted on Github Pages
 
-
-TODO: content update - footers / get involved
+Accessible at [socialcaredata.github.io](https:socialcaredata.github.io)
