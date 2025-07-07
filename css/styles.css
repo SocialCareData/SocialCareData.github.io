@@ -32,9 +32,15 @@ header {
 }
 
 .header-top {
+  padding-top: 5px;
   align-content: center;
   justify-content: center;
   text-align: center;
+  margin-bottom: 5px;
+}
+
+.header-top a {
+    color: var(--white);
 }
 
 .site-header {
