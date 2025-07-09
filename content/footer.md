@@ -1,7 +1,7 @@
 <div class="top">
     <h1>Getting involved</h1>
     <div class="tags">
-        <a id="github-link" href="https://github.com/SocialCareData">
+        <a id="github-link" href="https://github.com/SocialCareData" target="_blank">
             <img id="github-image" src="/images/logos/GitHub_Lockup_Dark.png"/>
         </a>
     </div>
