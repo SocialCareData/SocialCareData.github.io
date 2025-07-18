@@ -20,4 +20,4 @@ For more information about the programme overall, or to join a working group, pl
 |Harry Angus|Madeline Goldie|
 |[harry.angus@socialfinance.org.uk](mailto:harry.angus@socialfinance.org.uk)|[madeline.goldie@socialfinance.org.uk](mailto:madeline.goldie@socialfinance.org.uk)|
 
-*Note: This website is in its alpha development stage. All content is subject to licence.*
+*All content is subject to licence.*

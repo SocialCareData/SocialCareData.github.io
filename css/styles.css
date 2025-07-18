@@ -158,6 +158,16 @@ main p {
   margin: 0 0 20px 0;
 }
 
+main code {
+  background-color: #818b981f;
+  padding: 0.2em;
+  font-size: inherit;
+  border-radius: 6px;
+  margin: 0; 
+  white-space: break-spaces;
+
+}
+
 main li {
   font-size: 1.1875rem;
   color: var(--night);
@@ -274,12 +284,15 @@ footer {
 
 /* Tables in main */
 main table {
-  border: 0px solid
+  border: 0px solid;
+  margin-bottom: 1.1875rem;
+  min-width: 100%;
 }
 
 main th, main td {
   text-align: left;
   padding: 5px;
+  max-width: 250px;
 }
 
 main th {
@@ -292,10 +305,12 @@ main td {
 
 main td code {
   font-size: 1.25em;
+  padding: 0.2em 0.4em;
+  line-height: 1.75em;
 }
 
 main tr:nth-child(even) {
-  background-color: var(--white-smoke);
+  background-color: rgba(243, 242, 241, 0.5);
 }
 
 main table.catalogue td {
@@ -304,6 +319,7 @@ main table.catalogue td {
 
 main table.catalogue td a.web-button{
     margin: 10px;
+    width: 140px; /* this is hard-coded, which is obviously bad, but the only way I could keep buttons of consistent width */
 }
 
 /* Footer */
