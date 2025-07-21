@@ -33,20 +33,33 @@
     <!-- Header End -->
    <main>
         <div class="spec-content">
-            <div id="spec-about" class="markdown-content-external" data-markdown="https://raw.githubusercontent.com/SocialCareData/placements-standard/refs/heads/main/README.md">
-                    <!-- spec Markdown content loaded here -->
-                </div>
+            <div id="spec-title">
+                <!-- Title from README will be loaded here -->
+            </div>
 
-            <div id="spec-context" class="markdown-content-external" data-markdown="https://raw.githubusercontent.com/SocialCareData/placements-standard/refs/heads/main/background_1.md">
-                    <!-- spec Markdown content loaded here -->
-                </div>
+            <div class="tabs">
+                <button class="tab-button active" data-tab="context">Context</button>
+                <button class="tab-button" data-tab="about">About</button>
+                <button class="tab-button" data-tab="specification">Specification</button>
+            </div>
 
-            <div id="spec-text" class="markdown-content-external" data-markdown="https://raw.githubusercontent.com/SocialCareData/placements-standard/refs/heads/main/specification.md">
-                    <!-- spec Markdown content loaded here -->
-                </div>
+            <div id="context" class="tab-content active" data-markdown="https://raw.githubusercontent.com/SocialCareData/placements-standard/refs/heads/main/background_1.md">
+                <!-- Context content loaded here -->
+            </div>
 
-            <!-- <pre id="spec-diagram" class="mermaid" data-markdown="https://raw.githubusercontent.com/SocialCareData/placements-standard/refs/heads/main/datamodel.md"></pre> -->
+            <div id="about" class="tab-content" data-markdown="https://raw.githubusercontent.com/SocialCareData/placements-standard/refs/heads/main/README.md">
+                <!-- About content loaded here -->
+            </div>
 
+            <div id="specification" class="tab-content" data-markdown="https://raw.githubusercontent.com/SocialCareData/placements-standard/refs/heads/main/specification.md">
+                <!-- Specification content loaded here -->
+            </div>
+
+            <div class="tabs bottom-tabs">
+                <button class="tab-button active" data-tab="context">Context</button>
+                <button class="tab-button" data-tab="about">About</button>
+                <button class="tab-button" data-tab="specification">Specification</button>
+            </div>
         </div>
    </main>
    <footer>
@@ -57,5 +70,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script type="module" src="/js/main.js"></script>
+  <script type="module" src="/js/tabs.js"></script>
 </body>
 </html>
