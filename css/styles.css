@@ -6,6 +6,7 @@
   --dark-spring-green: #00703cff; /* colour for buttons or other interactions */
 }
 
+
 * {
   margin: 0;
   padding: 0;
@@ -40,7 +41,7 @@ header {
 }
 
 .header-top a {
-    color: var(--white);
+  color: var(--white);
 }
 
 .site-header {
@@ -158,6 +159,16 @@ main p {
   margin: 0 0 20px 0;
 }
 
+main code {
+  background-color: #818b981f;
+  padding: 0.2em;
+  font-size: inherit;
+  border-radius: 6px;
+  margin: 0; 
+  white-space: break-spaces;
+  
+}
+
 main li {
   font-size: 1.1875rem;
   color: var(--night);
@@ -217,7 +228,7 @@ footer {
 }
 
 .web-button:hover {
-    background-color: rgb(0,89.6,48);
+  background-color: rgb(0,89.6,48);
 }
 
 .web-button:focus:not(:active):not(:hover) {
@@ -225,8 +236,8 @@ footer {
     color: #0b0c0c;
     background-color: #fd0;
     box-shadow: 0 2px 0 #0b0c0c;
-}
-
+  }
+  
 /* USE CASES PAGE */
 .usecase1 {
   display: flex;
@@ -274,12 +285,15 @@ footer {
 
 /* Tables in main */
 main table {
-  border: 0px solid
+  border: 0px solid;
+  margin-bottom: 1.1875rem;
+  min-width: 100%;
 }
 
 main th, main td {
   text-align: left;
   padding: 5px;
+  max-width: 250px;
 }
 
 main th {
@@ -292,19 +306,22 @@ main td {
 
 main td code {
   font-size: 1.25em;
+  padding: 0.2em 0.4em;
+  line-height: 1.75em;
 }
 
 main tr:nth-child(even) {
-  background-color: var(--white-smoke);
+  background-color: rgba(243, 242, 241, 0.5);
 }
 
 main table.catalogue td {
     font-size: 1.25em;
-}
+  }
 
 main table.catalogue td a.web-button{
     margin: 10px;
-}
+    width: 140px; /* this is hard-coded, which is obviously bad, but the only way I could keep buttons of consistent width */
+  }
 
 /* Footer */
 footer .top {
@@ -327,15 +344,15 @@ footer #github-image {
 }
 
 footer h1 {
-    font-size: 1.5rem;
-    line-height: 1.25;
-    color: var(--night);
-    font-weight: 700;
-    display: block;
-    margin-top: 0;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #8eb8dc;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  color: var(--night);
+  font-weight: 700;
+  display: block;
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #8eb8dc;
 }
 
 footer p, footer a  {
@@ -360,4 +377,36 @@ footer th {
 
 footer td {
   padding-right: 5px;
+}
+
+/* Tab styles */
+.tabs {
+    margin: 20px 0;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background: var(--white-smoke);
+}
+
+.tab-button.active {
+    background: var(--azul);
+    color: var(--white);
+}
+
+.tab-content {
+    display: none;
+    /* padding: 20px; */
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.bottom-tabs {
+    margin-top: 40px;
+    border-top: 1px solid var(--white-smoke);
+    padding-top: 20px;
 }
