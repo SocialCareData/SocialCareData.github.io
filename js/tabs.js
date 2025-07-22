@@ -111,6 +111,7 @@ async function initializeTabs() {
 // Initialize tabs
 document.addEventListener('DOMContentLoaded', async () => {
     const tabContents = document.querySelectorAll('.tab-content');
+    const tabButtons = document.querySelectorAll('.tab-button');
 
     // Find the about tab content to get the README path
     const aboutContent = document.querySelector('#about');
