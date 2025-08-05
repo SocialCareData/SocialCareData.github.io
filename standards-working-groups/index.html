@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="/images/logos/main_logo.png" sizes="32x32">
-    <title>Data Standards for Social Care</title>
-    <meta name="description" content="Lightweight introduction to the Data Standards for Social Care programme">
+    <title>Specification - Data Standards for Social Care</title>
+    <meta name="description" content="Metadata spec for the Data Standards for Social Care programme">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
@@ -21,12 +21,18 @@
     </script>
     <!-- Header End -->
     <main>
-        <div class="landing-content">
-            <div id="landing-text" class="markdown-content" data-markdown="landing.md">
-                <!-- Landing Markdown content loaded here -->
+        <div class="working-groups-content">
+            <div id="working-groups-text" class="markdown-content" data-markdown="working-groups.md">
+                <!-- spec Markdown content loaded here -->
             </div>
         </div>
-    </main>
+        <div class="discussion-feed">
+            <script src="https://www.jsdelivr.com/package/npm/nanofeed@1/dist/nanofeed.min.js"></script>
+            <script>
+                url = "https://github.com/orgs/SocialCareData/discussions/categories/standards-working-groups.atom"
+            </script>
+        </div >
+​   </main >
     <footer>
         <div id="footer-text" class="markdown-content" data-markdown="footer.md">
             <!-- footer Markdown content loaded here -->
@@ -34,7 +40,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script type="module" src="/js/main.js"></script>
+            <script type="module" src="/js/main.js"></script>
 </body>
 
 </html>
