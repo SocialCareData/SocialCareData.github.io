@@ -6,7 +6,6 @@
   --dark-spring-green: #00703cff; /* colour for buttons or other interactions */
 }
 
-
 * {
   margin: 0;
   padding: 0;
@@ -96,6 +95,19 @@ img.logo:hover {
   transform: scale(1.1);
 }
 
+main #github-discussions-feed ul {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+
+main #github-discussions-feed ul li small.discussion-content p {
+  margin-left: 20px;
+}
+
+main #github-discussions-feed ul li small.discussion-content ol li {
+  margin-left: 20px;
+}
 /* MAIN */
 main {
   padding: 10px 25vw;

@@ -10,26 +10,13 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <!-- Header Start -->
-    <header>
-        <div class="header-top">
-            <h4>ALPHA - This website is currently under development. Please provide feedback on <a href="https://github.com/SocialCareData/SocialCareData.github.io/issues/new?title=Alpha+Website+Feedback" target="_blank">Github</a></h3>
-        </div>
-        <div class="site-header">
-            <div class="header-left">
-                <h1 class="landing-site-title"><a href="/" id="index-page-button">Data Standards for Social Care</a>
-                </h1>
-            </div>
-            <div class="header-right">
-                <nav class="nav-menu">
-                    <ul>
-                        <li><a href="/use-cases">Use Cases</a></li>
-                        <li><a href="/spec">Specifications</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+    <!-- Header Start -->
+    <header id="header-placeholder"></header>
+    <script>
+        fetch('/content/header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data);
+    </script>
     <!-- Header End -->
    <main>
         <div class="placements-use-case-content">
