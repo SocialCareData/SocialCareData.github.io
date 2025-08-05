@@ -32,8 +32,5 @@ This is what makes agreeing and implementing these data sharing programmes – a
 We will tackle this by agreeing data standards and interoperability standards within Children’s Social Care, and with the key partners. If we are successful, then Single View systems will be cheaper and faster to scale, so more LAs will have them, and multi-agency information sharing will be easier. Ultimately,  
 - **Social workers will spend less time searching for information**, and more time on direct work
 - **Children at risk will be more identifiable, earlier**, leading to early intervention and better outcomes
-- test test test
-
-
 
 We will not develop Single View systems or creating data sharing agreements, as both already exist. Our role is to facilitate their spread.  
