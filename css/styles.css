@@ -6,7 +6,6 @@
   --dark-spring-green: #00703cff; /* colour for buttons or other interactions */
 }
 
-
 * {
   margin: 0;
   padding: 0;
@@ -32,7 +31,7 @@ header {
   color: var(--white);
 }
 
-.header-top {
+.header-top, .header-main, .header-bottom {
   padding-top: 5px;
   align-content: center;
   justify-content: center;
@@ -40,51 +39,31 @@ header {
   margin-bottom: 5px;
 }
 
-.header-top a {
+.header-top a, .header-main a {
   color: var(--white);
-}
-
-.site-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  background-color: var(--night);
-  padding: 10px 25vw;
-  border-bottom: 5px solid var(--azul);
-  color: var(--white);
-  /* margin-bottom: 10px; */
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-}
-
-.header-left .landing-site-title {
   visibility: visible;
-}
-
-.header-left .landing-site-title a {
-  font-size: 2rem;
-  color: var(--white);
-  text-decoration: none;
-  visibility: visible;
-  text-decoration: none;
   transition: color 0.3s ease;
 }
+.header-main .landing-site-title a {
+  color: var(--white);
+  margin-top: 10px;
+  text-decoration: none;
+}
 
-.header-left .landing-site-title a:hover {
+.header-main .landing-site-title a:hover, .header-top a:hover {
   color: var(--azul);
 }
 
-.nav-menu ul {
+.header-bottom .nav-menu ul {
   list-style: none;
   display: flex;
   gap: 20px;
-  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.nav-menu ul li a {
+.header-bottom .nav-menu ul li a {
   text-decoration: none;
   color:var(--white);
   font-size: 1.25rem;
@@ -92,11 +71,11 @@ header {
   font-weight: medium;
 }
 
-.nav-menu ul li a:hover {
+.header-bottom .nav-menu ul li a:hover {
   color: var(--azul);
 }
 
-.nav-menu ul li a.active {
+.header-bottom .nav-menu ul li a.active {
   font-weight: bold;
 }
 
@@ -116,6 +95,19 @@ img.logo:hover {
   transform: scale(1.1);
 }
 
+main #github-discussions-feed ul {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+
+main #github-discussions-feed ul li small.discussion-content p {
+  margin-left: 20px;
+}
+
+main #github-discussions-feed ul li small.discussion-content ol li {
+  margin-left: 20px;
+}
 /* MAIN */
 main {
   padding: 10px 25vw;
@@ -164,9 +156,9 @@ main code {
   padding: 0.2em;
   font-size: inherit;
   border-radius: 6px;
-  margin: 0; 
+  margin: 0;
   white-space: break-spaces;
-  
+
 }
 
 main li {
@@ -237,7 +229,7 @@ footer {
     background-color: #fd0;
     box-shadow: 0 2px 0 #0b0c0c;
   }
-  
+
 /* USE CASES PAGE */
 .usecase1 {
   display: flex;
@@ -322,6 +314,23 @@ main table.catalogue td a.web-button{
     margin: 10px;
     width: 140px; /* this is hard-coded, which is obviously bad, but the only way I could keep buttons of consistent width */
   }
+
+main a:not(.web-button) {
+  color: var(--azul);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: max(1px, .0625rem);
+  text-underline-offset: .1578em;
+  background-image: url("\\images\\other_images\\newtab.svg");
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: 0.857em;
+  padding-right: 1em;
+}
+
+main a:not(.web-button):hover {
+  color: #223582;
+}
 
 /* Footer */
 footer .top {

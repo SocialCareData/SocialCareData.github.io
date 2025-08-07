@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/images/logos/main_logo.png" sizes="32x32">
+    <title>Specification - Data Standards for Social Care</title>
+    <meta name="description" content="Metadata spec for the Data Standards for Social Care programme">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <!-- Header Start -->
+    <header id="header-placeholder"></header>
+    <script>
+        fetch('/content/header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data);
+    </script>
+    <!-- Header End -->
+    <main>
+        <div class="working-groups-content">
+            <div id="working-groups-text" class="markdown-content" data-markdown="working-groups.md">
+                <!-- spec Markdown content loaded here -->
+            </div>
+        </div>
+        <div id="github-discussions-feed">
+            <script>
+                const FEED_URL = "https://github.com/orgs/SocialCareData/discussions/categories/standards-working-groups.atom"
+
+                fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(FEED_URL))
+                    .then(res => res.json())
+                    .then(data => {
+                        let html = "<h4>Latest Discussions</h4><ul>";
+                        data.items.forEach(item => {
+                            html += `<li class="github-discussion"><a href="${item.link}" target="_blank">${item.title}</a>`
+                            html += `<br/><br/><small class="discussion-content">${item.content}</small></li>`;
+                        });
+                        html += "</ul>";
+                        document.getElementById("github-discussions-feed").innerHTML = html;
+                    })
+                    .catch(err => {
+                        document.getElementById("github-discussions-feed").innerText = "Unable to show latest discussions at this time.";
+                        console.error(err);
+                    });
+            </script>
+        </div>
+    </main>
+    <footer>
+        <div id="footer-text" class="markdown-content" data-markdown="footer.md">
+            <!-- footer Markdown content loaded here -->
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>
