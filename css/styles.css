@@ -158,7 +158,24 @@ main code {
   border-radius: 6px;
   margin: 0;
   white-space: break-spaces;
+}
 
+main pre {
+  background-color: #818b981f;
+  padding: 0.2em;
+  font-size: inherit;
+  border-radius: 6px;
+  margin: 0;
+  white-space: break-spaces;
+}
+
+main pre code {
+  background-color: transparent;
+  padding: 0.2em;
+  font-size: inherit;
+  border-radius: 6px;
+  margin: 0;
+  white-space: break-spaces;
 }
 
 main li {
