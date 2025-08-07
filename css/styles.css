@@ -315,6 +315,23 @@ main table.catalogue td a.web-button{
     width: 140px; /* this is hard-coded, which is obviously bad, but the only way I could keep buttons of consistent width */
   }
 
+main a:not(.web-button) {
+  color: var(--azul);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: max(1px, .0625rem);
+  text-underline-offset: .1578em;
+  background-image: url("\\images\\other_images\\newtab.svg");
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: 0.857em;
+  padding-right: 1em;
+}
+
+main a:not(.web-button):hover {
+  color: #223582;
+}
+
 /* Footer */
 footer .top {
   display: flex;
