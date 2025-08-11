@@ -389,20 +389,36 @@ footer p, footer a  {
   margin: 0 0 20px 0;
 }
 
+footer td a {
+  text-decoration: underline;
+  text-decoration-thickness: max(1px, .0625rem);
+  text-underline-offset: .1578em;
+  background-image: url("\\images\\other_images\\mailto_icon.svg");
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: 0.857em;
+  padding-right: 1em;
+}
+
 footer table {
   border: 0px solid;
   margin-bottom: 30px;
   font-size: 1.1875rem;
   line-height: 1.3157894737;
+  width: 100%;
+  table-layout: fixed;
 }
 
 footer th {
   font-weight: 400;
-  padding-right: 5px;
+  width: 35%;
+  vertical-align: top;
 }
 
 footer td {
-  padding-right: 5px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  vertical-align: top;
 }
 
 /* Tab styles */

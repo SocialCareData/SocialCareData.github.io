@@ -10,10 +10,10 @@
 For more information about the programme overall, or to join a working group, please contact the programme team, or get involved with our public github repositories.
 
 
-|**Programme Director**|
-|:-|
-|Tom Rintoul|
-|[tom.rintoul@socialfinance.org.uk](mailto:tom.rintoul@socialfinance.org.uk)|
+|**General Enquiries**|**Programme Director**|
+|:-|:-|
+|Contact the Programme Team|Tom Rintoul|
+|[DataStandards-SocialCare@socialfinance.org.uk](mailto:DataStandards-SocialCare@socialfinance.org.uk)|[tom.rintoul@socialfinance.org.uk](mailto:tom.rintoul@socialfinance.org.uk)|
 
 |**Lead - Standards to Enable Multi-Agency Information Sharing**| **Lead - Standards to Enable Regional Placement Sufficiency Analysis** |
 |:-|:-|
