@@ -307,6 +307,7 @@ main th, main td {
 
 main th {
   border-bottom: 2px solid;
+  background-color: var(--white);
 }
 
 main td {
@@ -319,8 +320,36 @@ main td code {
   line-height: 1.75em;
 }
 
-main tr:nth-child(even) {
+/* main tr {
   background-color: rgba(243, 242, 241, 0.5);
+} */
+
+/* Hierarchy styling */
+main tr.hierarchy-child {
+  background-color: var(--white);
+}
+
+main td.hierarchy-arrow-cell {
+  position: relative;
+  padding-left: 1em;
+  border-left: 2px solid var(--azul);
+}
+
+/* main td.hierarchy-parent-cell {
+  position: relative;
+  border-left: 2px solid var(--dark-spring-green);
+} */
+
+main .hierarchy-indent {
+  /* display: inline-block; */
+  /* width: 1.5em;
+  height: 1em; */
+  /* margin-left: -1.5em; */
+  /* margin-right: 0.5em; */
+  /* border-left: 2px solid var(--azul); */
+  /* vertical-align: middle; */
+  /* content: ''; */
+  visibility: hidden;
 }
 
 main table.catalogue td {
