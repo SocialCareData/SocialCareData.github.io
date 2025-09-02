@@ -1,4 +1,4 @@
-# Data Standards in Social Care – Programme Overview
+# Programme Overview
 
 Social Finance, the Open Data Institute and Coram are working in partnership to develop data and interoperability standards for social care.  
 
