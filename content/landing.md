@@ -2,7 +2,7 @@
 
 Social Finance, the Open Data Institute and Coram are working in partnership to develop data and interoperability standards for social care.  
 
-This work is funded by the Department for Education (DfE) as a part of the manifesto commitment to establish a Single Unique Identifier, and secure its benefits for vulnerable children and young people. The programme is being delivered in close coordination with the Department for Health and Social Care (DHSC) given the important overlaps with adult social care, and under the direction of a steering group which brings together a range of stakeholders from across the sector.
+This work is jointly funded by the Department for Education (DfE) and the Department of Health and Social Care (DHSC) seeking to benefit children, young people and adults supported by social care. The programme is under the direction of a steering board which brings together a range of stakeholders from across the sector.
 
 The creation of these standards aims to make it easier for data created in one system to be accessed and meaningfully used in another. It aims to deliver: 
 - **Improved safeguarding** – with social workers in more local authorities able to look up information in partners' systems.
