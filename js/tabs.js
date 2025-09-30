@@ -66,11 +66,16 @@ async function switchTab(tabId) {
     const selectedButtons = document.querySelectorAll(`[data-tab="${tabId}"]`);
     selectedButtons.forEach(button => button.classList.add('active'));
     targetContent.classList.add('active');
-    
+
     // Update URL without reloading the page
     const url = new URL(window.location);
     url.searchParams.set('tab', tabId);
     window.history.pushState({}, '', url);
+
+    // Re-apply hierarchy enhancement to the visible tab
+    if (typeof enhanceTableHierarchy === 'function') {
+        enhanceTableHierarchy(tabId);
+    }
 }
 
 // Function to initialize tabs after content is loaded
