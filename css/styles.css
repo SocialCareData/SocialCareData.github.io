@@ -194,6 +194,7 @@ main ul, main ol {
 
 main img {
   margin: 1.1875rem auto;
+  width: 100%;
 }
 
 /* FOOTER */
