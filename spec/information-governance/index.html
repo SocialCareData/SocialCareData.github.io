@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/images/logos/main_logo.png" sizes="32x32">
+  <title>Specification - Data Standards for Social Care</title>
+  <meta name="description" content="Metadata spec for the Data Standards for Social Care programme">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Header Start -->
+    <header id="header-placeholder"></header>
+    <script>
+        fetch('/content/header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data);
+    </script>
+    <!-- Header End -->
+   <main>
+        <div class="spec-content">
+            <div id="spec-title">
+                <!-- Title from README will be loaded here -->
+            </div>
+
+            <div class="tabs">
+                <button class="tab-button active" data-tab="context">Context</button>
+                <button class="tab-button" data-tab="about">About</button>
+                <button class="tab-button" data-tab="request">Requests for Information</button>
+                <button class="tab-button" data-tab="dsa">Data Sharing Agreements</button>
+                <button class="tab-button" data-tab="decide&log">Decisions and Logging</button>
+            </div>
+
+            <div id="about" class="tab-content active" data-markdown="https://raw.githubusercontent.com/SocialCareData/information-governance/refs/heads/main/README.md">
+                <!-- About content loaded here -->
+            </div>
+
+            <div id="context" class="tab-content" data-markdown="https://raw.githubusercontent.com/SocialCareData/information-governance/refs/heads/main/context.md">
+                <!-- context content loaded here -->
+            </div>
+
+            <div id="request" class="tab-content" data-markdown="https://raw.githubusercontent.com/SocialCareData/information-governance/refs/heads/main/request.md">
+                <!-- request content loaded here -->
+            </div>
+
+            <div id="dsa" class="tab-content" data-markdown="https://raw.githubusercontent.com/SocialCareData/information-governance/refs/heads/main/dsa.md">
+                <!-- dsa content loaded here -->
+            </div>
+
+            <div id="decide&log" class="tab-content" data-markdown="https://raw.githubusercontent.com/SocialCareData/information-governance/refs/heads/main/decide&log.md">
+                <!-- decide&log content loaded here -->
+            </div>
+
+            <div class="tabs bottom-tabs">
+                <button class="tab-button active" data-tab="about">About</button>
+                <button class="tab-button" data-tab="specification">Specification</button>
+            </div>
+        </div>
+   </main>
+   <footer>
+        <div id="footer-text" class="markdown-content" data-markdown="footer.md">
+                    <!-- footer Markdown content loaded here -->
+                </div>
+   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script type="module" src="/js/main.js"></script>
+  <script type="module" src="/js/tabs.js"></script>
+</body>
+</html>
