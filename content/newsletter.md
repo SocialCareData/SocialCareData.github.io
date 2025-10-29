@@ -1,6 +1,8 @@
-## Newsletter
+## Programme Newsletter
 
-We have a programme newsletter to keep you updated on how the different strands of the programme develop over three years. This is so you can make informed decisions on if, when and how you’d want to contribute to the foundations for better social care delivery across the nation.
+We have a programme newsletter to keep you updated on how the different strands of the programme develop over three years. 
+
+This is so you can make informed decisions on if, when and how you’d want to contribute to the foundations for better social care delivery across the nation.
 
 You can sign up for our newsletter [here](https://github.us15.list-manage.com/subscribe?u=cc2fe06b8de4efcacfb9a9e18&id=410af499ef).
 
