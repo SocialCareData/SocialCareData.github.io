@@ -51,6 +51,18 @@ async function loadMarkdown_pruned(filePath, elementId) {
     }
   }
 
+// Function to fetch and render a html file
+async function loadHTML_full(filePath, elementId) {
+    try {
+      fetch(filePath)
+            .then(response => response.text())
+            .then(data => document.getElementById(elementId).innerHTML = data);
+    } catch (error) {
+      console.error(`Error loading ${filePath}:`, error);
+      document.getElementById(elementId).innerHTML = "<p>Sorry, the content couldn't be loaded.</p>";
+    }
+  }
+
 // Load content on compile
 document.addEventListener("DOMContentLoaded", () => {
   // Markdown
@@ -63,6 +75,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const isExternal = markdownFile.startsWith('http');
     const filePath = isExternal ? markdownFile : `/content/${markdownFile}`;
     loadMarkdown_full(filePath, mdEl.id).then(() => {
+    enhanceTableHierarchy();
+    });
+  });
+
+  // Use [data-html] to target all html-importing containers
+  const htmlContainers = document.querySelectorAll('[data-html]');
+  htmlContainers.forEach((htmlEl) => {
+    const htmlFile = htmlEl.getAttribute('data-html');
+    // If the path is relative, load from /content, else use as is
+    const isExternal = htmlFile.startsWith('http');
+    const filePath = isExternal ? htmlFile : `${htmlFile}`;
+    loadHTML_full(filePath, htmlEl.id).then(() => {
     enhanceTableHierarchy();
     });
   });
