@@ -126,10 +126,23 @@ function renderFieldRow(field, parentName, level = 0) {
         if (field.alignment.pds) alignment += `<div><strong>PDS:</strong> ${field.alignment.pds}</div>`;
     }
 
+    // Format type with potential vocabulary link
+    let typeDisplay = field.type;
+    if (field.vocabulary) {
+        // Links disabled for now until resources are ready
+        // typeDisplay += ` (<a href="${field.vocabulary.url}" target="_blank">${field.vocabulary.name}</a>)`;
+        typeDisplay += ` (${field.vocabulary.name})`;
+    }
+    if (field.reference) {
+        // Links disabled for now
+        // typeDisplay += ` -> <a href="${field.reference}" target="_blank">Reference</a>`;
+        typeDisplay += ` -> Reference`;
+    }
+
     html += `<tr>
         <td>${fieldName}</td>
         <td>${field.cardinality}</td>
-        <td>${field.type}</td>
+        <td>${typeDisplay}</td>
         <td>${field.description || ''}</td>
         <td>${alignment}</td>
     </tr>`;
