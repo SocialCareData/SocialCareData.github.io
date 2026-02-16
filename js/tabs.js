@@ -128,6 +128,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Load content for each tab
     const contentPromises = Array.from(tabContents).map(content => {
         const path = content.getAttribute('data-markdown');
+        if (!path) {
+            return Promise.resolve();
+        }
         if (content.id === 'about') {
             return loadContentWithoutFirstLine(path, content.id);
         } else {
@@ -153,4 +156,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         const currentTab = urlParams.get('tab') || 'context';
         switchTab(currentTab);
     });
+
+//     for (let index = 0; index < document.querySelectorAll('.open-issue-marker').length; index++) {
+//     const element = document.querySelectorAll('.open-issue-marker')[index];
+//     element.addEventListener("mouseover", () => {
+//       console.log(document.getElementById(element.getAttribute('hovertext')));
+//     }
+
+//     )
+// }
 });
