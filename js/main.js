@@ -63,6 +63,86 @@ async function loadHTML_full(filePath, elementId) {
     }
   }
 
+// Function to fetch and render a JSON specification
+async function loadJSON_spec(filePath, elementId) {
+    try {
+        const response = await fetch(filePath);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const spec = await response.json();
+        
+        let html = '';
+
+        // Iterate through entities
+        if (spec.entities) {
+            spec.entities.forEach(entity => {
+                html += `<h3>${entity.name}</h3>`;
+                if (entity.description) {
+                    html += `<p>${entity.description}</p>`;
+                }
+                
+                html += `<table>
+                    <thead>
+                        <tr>
+                            <th>Field name</th>
+                            <th>Cardinality</th>
+                            <th>Data Type</th>
+                            <th>Description</th>
+                            <th>Alignment</th>
+                        </tr>
+                    </thead>
+                    <tbody>`;
+                
+                if (entity.fields) {
+                    entity.fields.forEach(field => {
+                        html += renderFieldRow(field, entity.name);
+                    });
+                }
+                
+                html += `</tbody></table>`;
+            });
+        }
+
+        document.getElementById(elementId).innerHTML = html;
+        // Re-run hierarchy enhancement if needed, though this new renderer handles it semantically
+        enhanceTableHierarchy();
+
+    } catch (error) {
+        console.error(`Error loading JSON spec ${filePath}:`, error);
+        document.getElementById(elementId).innerHTML = "<p>Sorry, the specification couldn't be loaded.</p>";
+    }
+}
+
+function renderFieldRow(field, parentName, level = 0) {
+    let html = '';
+    const indent = level > 0 ? `<span class="hierarchy-indent" style="margin-left: ${level * 1.5}em;">↳ </span>` : '';
+    const fieldName = `${indent}<code>${parentName}.${field.name}</code>`;
+    
+    // Format alignment
+    let alignment = '';
+    if (field.alignment) {
+        if (field.alignment.fhir) alignment += `<div><strong>FHIR:</strong> ${field.alignment.fhir}</div>`;
+        if (field.alignment.pds) alignment += `<div><strong>PDS:</strong> ${field.alignment.pds}</div>`;
+    }
+
+    html += `<tr>
+        <td>${fieldName}</td>
+        <td>${field.cardinality}</td>
+        <td>${field.type}</td>
+        <td>${field.description || ''}</td>
+        <td>${alignment}</td>
+    </tr>`;
+
+    if (field.children) {
+        field.children.forEach(child => {
+            html += renderFieldRow(child, `${parentName}.${field.name}`, level + 1);
+        });
+    }
+
+    return html;
+}
+
 // Load content on compile
 document.addEventListener("DOMContentLoaded", () => {
   // Markdown
@@ -72,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
   mdContainers.forEach((mdEl) => {
     const markdownFile = mdEl.getAttribute('data-markdown');
     // If the path is relative, load from /content, else use as is
-    const isExternal = markdownFile.startsWith('http');
+    const isExternal = markdownFile.startsWith('http') || markdownFile.startsWith('/');
     const filePath = isExternal ? markdownFile : `/content/${markdownFile}`;
     loadMarkdown_full(filePath, mdEl.id).then(() => {
     enhanceTableHierarchy();
@@ -89,6 +169,13 @@ document.addEventListener("DOMContentLoaded", () => {
     loadHTML_full(filePath, htmlEl.id).then(() => {
     enhanceTableHierarchy();
     });
+  });
+
+  // Use [data-json] to target JSON specification containers
+  const jsonContainers = document.querySelectorAll('[data-json]');
+  jsonContainers.forEach((jsonEl) => {
+      const jsonFile = jsonEl.getAttribute('data-json');
+      loadJSON_spec(jsonFile, jsonEl.id);
   });
 
   // Mermaid diagrams - load markdown into element
