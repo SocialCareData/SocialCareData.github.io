@@ -110,9 +110,7 @@ async function loadJSON_spec(filePath, elementId) {
         }
 
         document.getElementById(elementId).innerHTML = html;
-        // Re-run hierarchy enhancement if needed, though this new renderer handles it semantically
-        enhanceTableHierarchy();
-
+        // No need to call enhanceTableHierarchy() as the renderer now handles it
     } catch (error) {
         console.error(`Error loading JSON spec ${filePath}:`, error);
         document.getElementById(elementId).innerHTML = "<p>Sorry, the specification couldn't be loaded.</p>";
@@ -121,7 +119,8 @@ async function loadJSON_spec(filePath, elementId) {
 
 function renderFieldRow(field, parentName, level = 0, showAlignment, showOptions) {
     let html = '';
-    const indent = level > 0 ? `<span class="hierarchy-indent" style="margin-left: ${level * 1.5}em;">↳ </span>` : '';
+    const isChild = level > 0;
+    const indent = isChild ? `<span class="hierarchy-indent" style="margin-left: ${level * 1.5}em;">↳ </span>` : '';
     const fieldName = `${indent}<code>${parentName}.${field.name}</code>`;
     
     // Format alignment
@@ -131,6 +130,7 @@ function renderFieldRow(field, parentName, level = 0, showAlignment, showOptions
         if (field.alignment) {
             if (field.alignment.fhir) alignContent += `<div><strong>FHIR:</strong> ${field.alignment.fhir}</div>`;
             if (field.alignment.pds) alignContent += `<div><strong>PDS:</strong> ${field.alignment.pds}</div>`;
+            if (field.alignment.odrl) alignContent += `<div><strong>ODRL:</strong> ${field.alignment.odrl}</div>`;
         }
         alignment = `<td>${alignContent}</td>`;
     }
@@ -158,8 +158,11 @@ function renderFieldRow(field, parentName, level = 0, showAlignment, showOptions
         typeDisplay += ` -> Reference`;
     }
 
-    html += `<tr>
-        <td>${fieldName}</td>
+    const rowClass = isChild ? 'class="hierarchy-child"' : '';
+    const cellClass = isChild ? 'class="hierarchy-arrow-cell"' : '';
+
+    html += `<tr ${rowClass}>
+        <td ${cellClass}>${fieldName}</td>
         <td>${field.cardinality}</td>
         <td>${typeDisplay}</td>
         <td>${field.description || ''}</td>
