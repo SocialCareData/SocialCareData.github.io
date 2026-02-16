@@ -342,15 +342,7 @@ main td.hierarchy-arrow-cell {
 } */
 
 main .hierarchy-indent {
-  /* display: inline-block; */
-  /* width: 1.5em;
-  height: 1em; */
-  /* margin-left: -1.5em; */
-  /* margin-right: 0.5em; */
-  /* border-left: 2px solid var(--azul); */
-  /* vertical-align: middle; */
-  /* content: ''; */
-  visibility: hidden;
+  display: inline-block;
 }
 
 main table.catalogue td {
@@ -481,4 +473,27 @@ footer td {
     margin-top: 40px;
     border-top: 1px solid var(--white-smoke);
     padding-top: 20px;
+}
+
+.open-issue-marker {
+  display: inline-block;
+  color: var(--azul);
+  font-size: 1.2rem;
+  cursor: help;
+}
+
+.hover-text {
+  visibility: hidden; 
+  width: 200px;
+  background-color: var(--white-smoke);
+  color: var(--azul);
+  text-align: center;
+  padding: 5px 5px;
+  border-radius: 1px;
+  position: absolute;
+  z-index: 1; 
+}
+
+.open-issue-marker:hover .hover-text {
+  visibility: visible;
 }

@@ -63,6 +63,122 @@ async function loadHTML_full(filePath, elementId) {
     }
   }
 
+// Function to fetch and render a JSON specification
+async function loadJSON_spec(filePath, elementId) {
+    try {
+        const response = await fetch(filePath);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const spec = await response.json();
+        
+        let html = '';
+
+        // Iterate through entities
+        if (spec.entities) {
+            spec.entities.forEach(entity => {
+                html += `<h3>${entity.name}</h3>`;
+                if (entity.description) {
+                    html += `<p>${entity.description}</p>`;
+                }
+                
+                // Determine which columns to show
+                const hasAlignment = entity.fields.some(f => f.alignment || (f.children && f.children.some(c => c.alignment)));
+                const hasOptions = entity.fields.some(f => (f.options && f.options.length > 0) || (f.children && f.children.some(c => c.options && c.options.length > 0)));
+
+                html += `<table>
+                    <thead>
+                        <tr>
+                            <th>Field name</th>
+                            <th>Cardinality</th>
+                            <th>Data Type</th>
+                            <th>Description</th>
+                            ${hasOptions ? '<th>Options</th>' : ''}
+                            ${hasAlignment ? '<th>Alignment</th>' : ''}
+                        </tr>
+                    </thead>
+                    <tbody>`;
+                
+                if (entity.fields) {
+                    entity.fields.forEach(field => {
+                        html += renderFieldRow(field, entity.name, 0, hasAlignment, hasOptions);
+                    });
+                }
+                
+                html += `</tbody></table>`;
+            });
+        }
+
+        document.getElementById(elementId).innerHTML = html;
+        // No need to call enhanceTableHierarchy() as the renderer now handles it
+    } catch (error) {
+        console.error(`Error loading JSON spec ${filePath}:`, error);
+        document.getElementById(elementId).innerHTML = "<p>Sorry, the specification couldn't be loaded.</p>";
+    }
+}
+
+function renderFieldRow(field, parentName, level = 0, showAlignment, showOptions) {
+    let html = '';
+    const isChild = level > 0;
+    const indent = isChild ? `<span class="hierarchy-indent" style="margin-left: ${level * 1.5}em;">↳ </span>` : '';
+    const fieldName = `${indent}<code>${parentName}.${field.name}</code>`;
+    
+    // Format alignment
+    let alignment = '';
+    if (showAlignment) {
+        let alignContent = '';
+        if (field.alignment) {
+            if (field.alignment.fhir) alignContent += `<div><strong>FHIR:</strong> ${field.alignment.fhir}</div>`;
+            if (field.alignment.pds) alignContent += `<div><strong>PDS:</strong> ${field.alignment.pds}</div>`;
+            if (field.alignment.odrl) alignContent += `<div><strong>ODRL:</strong> ${field.alignment.odrl}</div>`;
+        }
+        alignment = `<td>${alignContent}</td>`;
+    }
+
+    // Format options
+    let options = '';
+    if (showOptions) {
+        let optionsContent = '';
+        if (field.options && field.options.length > 0) {
+            optionsContent = field.options.join(', ');
+        }
+        options = `<td>${optionsContent}</td>`;
+    }
+
+    // Format type with potential vocabulary link
+    let typeDisplay = field.type;
+    if (field.vocabulary) {
+        // Links disabled for now until resources are ready
+        // typeDisplay += ` (<a href="${field.vocabulary.url}" target="_blank">${field.vocabulary.name}</a>)`;
+        typeDisplay += ` (${field.vocabulary.name})`;
+    }
+    if (field.reference) {
+        // Links disabled for now
+        // typeDisplay += ` -> <a href="${field.reference}" target="_blank">Reference</a>`;
+        typeDisplay += ` -> Reference`;
+    }
+
+    const rowClass = isChild ? 'class="hierarchy-child"' : '';
+    const cellClass = isChild ? 'class="hierarchy-arrow-cell"' : '';
+
+    html += `<tr ${rowClass}>
+        <td ${cellClass}>${fieldName}</td>
+        <td>${field.cardinality}</td>
+        <td>${typeDisplay}</td>
+        <td>${field.description || ''}</td>
+        ${options}
+        ${alignment}
+    </tr>`;
+
+    if (field.children) {
+        field.children.forEach(child => {
+            html += renderFieldRow(child, `${parentName}.${field.name}`, level + 1, showAlignment, showOptions);
+        });
+    }
+
+    return html;
+}
+
 // Load content on compile
 document.addEventListener("DOMContentLoaded", () => {
   // Markdown
@@ -72,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
   mdContainers.forEach((mdEl) => {
     const markdownFile = mdEl.getAttribute('data-markdown');
     // If the path is relative, load from /content, else use as is
-    const isExternal = markdownFile.startsWith('http');
+    const isExternal = markdownFile.startsWith('http') || markdownFile.startsWith('/');
     const filePath = isExternal ? markdownFile : `/content/${markdownFile}`;
     loadMarkdown_full(filePath, mdEl.id).then(() => {
     enhanceTableHierarchy();
@@ -89,6 +205,13 @@ document.addEventListener("DOMContentLoaded", () => {
     loadHTML_full(filePath, htmlEl.id).then(() => {
     enhanceTableHierarchy();
     });
+  });
+
+  // Use [data-json] to target JSON specification containers
+  const jsonContainers = document.querySelectorAll('[data-json]');
+  jsonContainers.forEach((jsonEl) => {
+      const jsonFile = jsonEl.getAttribute('data-json');
+      loadJSON_spec(jsonFile, jsonEl.id);
   });
 
   // Mermaid diagrams - load markdown into element
