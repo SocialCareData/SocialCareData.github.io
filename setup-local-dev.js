@@ -33,7 +33,7 @@ repos.forEach(repo => {
     }
 
     // Files to copy
-    const filesToCopy = ['README.md', 'specification.md', 'spec.json', 'person.json', 'placements.json']; // Added spec.json for future use
+    const filesToCopy = ['README.md', 'specification.md', 'spec.json', 'person.json', 'placements.json', 'request.json', 'dsa.json']; // Added spec.json for future use
 
     filesToCopy.forEach(file => {
         const sourceFile = path.join(sourceDir, file);
