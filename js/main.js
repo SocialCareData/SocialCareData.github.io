@@ -82,6 +82,10 @@ async function loadJSON_spec(filePath, elementId) {
                     html += `<p>${entity.description}</p>`;
                 }
                 
+                // Determine which columns to show
+                const hasAlignment = entity.fields.some(f => f.alignment || (f.children && f.children.some(c => c.alignment)));
+                const hasOptions = entity.fields.some(f => (f.options && f.options.length > 0) || (f.children && f.children.some(c => c.options && c.options.length > 0)));
+
                 html += `<table>
                     <thead>
                         <tr>
@@ -89,14 +93,15 @@ async function loadJSON_spec(filePath, elementId) {
                             <th>Cardinality</th>
                             <th>Data Type</th>
                             <th>Description</th>
-                            <th>Alignment</th>
+                            ${hasOptions ? '<th>Options</th>' : ''}
+                            ${hasAlignment ? '<th>Alignment</th>' : ''}
                         </tr>
                     </thead>
                     <tbody>`;
                 
                 if (entity.fields) {
                     entity.fields.forEach(field => {
-                        html += renderFieldRow(field, entity.name);
+                        html += renderFieldRow(field, entity.name, 0, hasAlignment, hasOptions);
                     });
                 }
                 
@@ -114,16 +119,30 @@ async function loadJSON_spec(filePath, elementId) {
     }
 }
 
-function renderFieldRow(field, parentName, level = 0) {
+function renderFieldRow(field, parentName, level = 0, showAlignment, showOptions) {
     let html = '';
     const indent = level > 0 ? `<span class="hierarchy-indent" style="margin-left: ${level * 1.5}em;">↳ </span>` : '';
     const fieldName = `${indent}<code>${parentName}.${field.name}</code>`;
     
     // Format alignment
     let alignment = '';
-    if (field.alignment) {
-        if (field.alignment.fhir) alignment += `<div><strong>FHIR:</strong> ${field.alignment.fhir}</div>`;
-        if (field.alignment.pds) alignment += `<div><strong>PDS:</strong> ${field.alignment.pds}</div>`;
+    if (showAlignment) {
+        let alignContent = '';
+        if (field.alignment) {
+            if (field.alignment.fhir) alignContent += `<div><strong>FHIR:</strong> ${field.alignment.fhir}</div>`;
+            if (field.alignment.pds) alignContent += `<div><strong>PDS:</strong> ${field.alignment.pds}</div>`;
+        }
+        alignment = `<td>${alignContent}</td>`;
+    }
+
+    // Format options
+    let options = '';
+    if (showOptions) {
+        let optionsContent = '';
+        if (field.options && field.options.length > 0) {
+            optionsContent = field.options.join(', ');
+        }
+        options = `<td>${optionsContent}</td>`;
     }
 
     // Format type with potential vocabulary link
@@ -139,23 +158,18 @@ function renderFieldRow(field, parentName, level = 0) {
         typeDisplay += ` -> Reference`;
     }
 
-    // Display options for categorical fields
-    let descriptionDisplay = field.description || '';
-    if (field.options && field.options.length > 0) {
-        descriptionDisplay += '<br><strong>Options:</strong> ' + field.options.join(', ');
-    }
-
     html += `<tr>
         <td>${fieldName}</td>
         <td>${field.cardinality}</td>
         <td>${typeDisplay}</td>
-        <td>${descriptionDisplay}</td>
-        <td>${alignment}</td>
+        <td>${field.description || ''}</td>
+        ${options}
+        ${alignment}
     </tr>`;
 
     if (field.children) {
         field.children.forEach(child => {
-            html += renderFieldRow(child, `${parentName}.${field.name}`, level + 1);
+            html += renderFieldRow(child, `${parentName}.${field.name}`, level + 1, showAlignment, showOptions);
         });
     }
 
