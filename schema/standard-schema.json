@@ -35,6 +35,10 @@
                 "description": { "type": "string" },
                 "example": { "type": "string" },
                 "constraints": { "type": "string" },
+                "options": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
                 "vocabulary": { 
                   "type": "object",
                   "properties": {
