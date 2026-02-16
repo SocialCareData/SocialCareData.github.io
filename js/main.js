@@ -139,11 +139,17 @@ function renderFieldRow(field, parentName, level = 0) {
         typeDisplay += ` -> Reference`;
     }
 
+    // Display options for categorical fields
+    let descriptionDisplay = field.description || '';
+    if (field.options && field.options.length > 0) {
+        descriptionDisplay += '<br><strong>Options:</strong> ' + field.options.join(', ');
+    }
+
     html += `<tr>
         <td>${fieldName}</td>
         <td>${field.cardinality}</td>
         <td>${typeDisplay}</td>
-        <td>${field.description || ''}</td>
+        <td>${descriptionDisplay}</td>
         <td>${alignment}</td>
     </tr>`;
 
