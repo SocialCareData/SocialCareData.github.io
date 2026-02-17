@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/images/logos/main_logo.png" sizes="32x32">
+    <title>Specification - Data Standards for Social Care</title>
+    <meta name="description" content="Metadata spec for the Data Standards for Social Care programme">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <!-- Header Start -->
+    <header id="header-placeholder"></header>
+    <script>
+        fetch('/content/header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data);
+    </script>
+    <!-- Header End -->
+    <main>
+
+        <p>This catalogue provides access to the data specifications being developed for social care case management systems.</p>
+        <p>The specifications are generated dynamically from the latest versions in GitHub.</p>
+        <p>As new specifications are developed they will be added to this catalogue.</p>
+        <table class="catalogue">
+            <tr>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td>Life Event</td>
+                <td>Draft</td>
+                <td><a href="/spec/life-event" class="web-button">Life Event Specification</a></td>
+                </td>
+            </tr>
+            <tr>
+                <td>Professional</td>
+                <td>Draft</td>
+                <td><a href="/spec/professional" class="web-button">Professional Specification</a></td>
+                </td>
+            </tr>
+            <tr>
+                <td>Relationship</td>
+                <td>Draft</td>
+                <td><a href="/spec/relationship" class="web-button">Relationship Specification</a></td>
+                </td>
+            </tr>
+            <tr>
+                <td>Service Episode</td>
+                <td>Draft</td>
+                <td><a href="/spec/service-episode" class="web-button">Service Episode Specification</a></td>
+                </td>
+            </tr>
+        </table>
+    </main>
+    <footer>
+        <div id="footer-text" class="markdown-content" data-markdown="footer.md">
+            <!-- footer Markdown content loaded here -->
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>
