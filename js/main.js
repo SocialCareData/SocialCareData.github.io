@@ -149,8 +149,8 @@ function renderFieldRow(field, parentName, level = 0, showAlignment, showOptions
     let typeDisplay = field.type;
     if (field.vocabulary) {
         // Links disabled for now until resources are ready
-        // typeDisplay += ` (<a href="${field.vocabulary.url}" target="_blank">${field.vocabulary.name}</a>)`;
-        typeDisplay += ` (${field.vocabulary.name})`;
+        typeDisplay += ` (<a href="${field.vocabulary.url}" target="_blank">${field.vocabulary.name}</a>)`;
+        // typeDisplay += ` (${field.vocabulary.name})`;
     }
     if (field.reference) {
         // Links disabled for now
