@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/images/logos/main_logo.png" sizes="32x32">
+    <title>Data Standards for Social Care</title>
+    <meta name="description" content="Lightweight introduction to the Data Standards for Social Care programme">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <!-- Header Start -->
+    <header id="header-placeholder"></header>
+    <script>
+        fetch('/content/header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data);
+    </script>
+    <!-- Header End -->
+    <main>
+        <div class="todo-content">
+            <h1>
+                Under Construction
+            </h1>
+            <p>
+                This resource is still being developed. If you think this is incorrect, please raise an issue on GitHub.
+            </p>
+            <a href="https://github.com/SocialCareData/SocialCareData.github.io/issues/new?template=content_issue.yml" class="web-button" target="_blank">Raise an issue</a>
+        </div>
+    </main>
+    <footer>
+        <div id="footer-text" class="markdown-content" data-markdown="footer.md">
+            <!-- footer Markdown content loaded here -->
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>
