@@ -8,7 +8,12 @@ const repos = [
     'placements-standard',
     'information-governance',
     'controlled-vocabularies',
-    'API-Catalogue'
+    'API-Catalogue',
+    'life-event-standard',
+    'logical-model',
+    'professional-standard',
+    'relationship-standard',
+    'service-episode-standard'
 ];
 
 const sourceBase = path.join(__dirname, '..');
@@ -32,18 +37,25 @@ repos.forEach(repo => {
         fs.mkdirSync(destDir, { recursive: true });
     }
 
-    // Files to copy
-    const filesToCopy = ['README.md', 'specification.md', 'spec.json', 'person.json', 'placements.json', 'request.json', 'dsa.json']; // Added spec.json for future use
-
-    filesToCopy.forEach(file => {
-        const sourceFile = path.join(sourceDir, file);
-        const destFile = path.join(destDir, file);
-
-        if (fs.existsSync(sourceFile)) {
-            fs.copyFileSync(sourceFile, destFile);
-            console.log(`Copied ${repo}/${file}`);
+    // Recursively copy all .md and .json files
+    function copyFiles(currentSource, currentDest) {
+        if (!fs.existsSync(currentDest)) {
+            fs.mkdirSync(currentDest, { recursive: true });
         }
-    });
+        fs.readdirSync(currentSource).forEach(file => {
+            if (file.startsWith('.')) return; // skip .git etc
+            const sourceFile = path.join(currentSource, file);
+            const destFile = path.join(currentDest, file);
+            const stat = fs.statSync(sourceFile);
+            if (stat.isDirectory()) {
+                copyFiles(sourceFile, destFile);
+            } else if (file.endsWith('.md') || file.endsWith('.json')) {
+                fs.copyFileSync(sourceFile, destFile);
+                console.log(`Copied ${path.relative(sourceBase, sourceFile)}`);
+            }
+        });
+    }
+    copyFiles(sourceDir, destDir);
 });
 
 console.log('Local setup complete. Files copied to content/local-specs/');
