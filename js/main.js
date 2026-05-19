@@ -179,6 +179,75 @@ function renderFieldRow(field, parentName, level = 0, showAlignment, showOptions
     return html;
 }
 
+// Function to fetch and render a JSON vocabulary
+async function loadJSON_vocab(filePath, elementId) {
+    try {
+        const response = await fetch(filePath);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const spec = await response.json();
+        
+        let html = '';
+
+        // Iterate through entities
+        if (spec.entities) {
+            spec.entities.forEach(entity => {
+                html += `<h3>${entity.name}</h3>`;
+                if (entity.description) {
+                    html += `<p>${entity.description}</p>`;
+                }
+
+                html += `<table>
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>`;
+                
+                if (entity.fields) {
+                    entity.fields.forEach(field => {
+                        html += renderVocabRow(field, '', 0);
+                    });
+                }
+                
+                html += `</tbody></table>`;
+            });
+        }
+
+        document.getElementById(elementId).innerHTML = html;
+    } catch (error) {
+        console.error(`Error loading JSON vocab ${filePath}:`, error);
+        document.getElementById(elementId).innerHTML = "<p>Sorry, the vocabulary couldn't be loaded.</p>";
+    }
+}
+
+function renderVocabRow(field, parentName = '', level = 0) {
+    let html = '';
+    const isChild = level > 0;
+    const indent = isChild ? `<span class="hierarchy-indent" style="margin-left: ${level * 1.5}em;">↳ </span>` : '';
+    const fullName = parentName ? `${parentName}.${field.name}` : field.name;
+    const fieldName = `${indent}<code>${fullName}</code>`;
+    
+    const rowClass = isChild ? 'class="hierarchy-child"' : 'class="hierarchy-parent"';
+    const cellClass = isChild ? 'class="hierarchy-arrow-cell"' : 'class="hierarchy-parent-cell"';
+
+    html += `<tr ${rowClass}>
+        <td ${cellClass}>${fieldName}</td>
+        <td>${field.description || ''}</td>
+    </tr>`;
+
+    if (field.children) {
+        field.children.forEach(child => {
+            html += renderVocabRow(child, fullName, level + 1);
+        });
+    }
+
+    return html;
+}
+
 // Load content on compile
 document.addEventListener("DOMContentLoaded", () => {
   // Markdown
@@ -212,6 +281,13 @@ document.addEventListener("DOMContentLoaded", () => {
   jsonContainers.forEach((jsonEl) => {
       const jsonFile = jsonEl.getAttribute('data-json');
       loadJSON_spec(jsonFile, jsonEl.id);
+  });
+
+  // Use [data-json-vocab] to target JSON vocabulary containers
+  const jsonVocabContainers = document.querySelectorAll('[data-json-vocab]');
+  jsonVocabContainers.forEach((jsonEl) => {
+      const jsonFile = jsonEl.getAttribute('data-json-vocab');
+      loadJSON_vocab(jsonFile, jsonEl.id);
   });
 
   // Mermaid diagrams - load markdown into element
