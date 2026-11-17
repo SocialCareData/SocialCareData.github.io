@@ -31,6 +31,33 @@ header {
   color: var(--white);
 }
 
+.beta-banner {
+  background-color: #ffdd00;
+  color: var(--night);
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.beta-banner a {
+  color: var(--night);
+  font-weight: 700;
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+
+.beta-banner a:hover,
+.beta-banner a:focus {
+  text-decoration-thickness: 3px;
+  outline: none;
+}
+
+.beta-banner a:focus-visible {
+  outline: 3px solid var(--night);
+  outline-offset: 2px;
+}
+
 .header-top, .header-main, .header-bottom {
   padding-top: 5px;
   align-content: center;
